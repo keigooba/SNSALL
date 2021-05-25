@@ -25,7 +25,7 @@ steps:
 # see https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values?hl=ja
 substitutions:
   _REGION: asia-northeast1
-  _SERVICE_NAME: exec-gcloud-command
+  _SERVICE_NAME: snsall
 
 # imagesフィールドにはCloudBuildがContainerRegistry にpushする1つ以上の Dockerイメージを指定
 images:
