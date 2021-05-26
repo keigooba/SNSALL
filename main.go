@@ -28,7 +28,7 @@ func main() {
 }
 
 func index(w http.ResponseWriter, _ *http.Request) {
-	fmt.Fprint(w, "hello cloud run2")
+	fmt.Fprint(w, "hello cloud run3")
 }
 
 func version(w http.ResponseWriter, _ *http.Request) {
