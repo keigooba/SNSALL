@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	controllers.CmdFlag()
+	CmdFlag()
 	log.Println(controllers.StartWebServer())
 }

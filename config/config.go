@@ -6,6 +6,7 @@ package config
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"snsall/utils"
@@ -49,25 +50,21 @@ func init() {
 
 // LoadConfig Configの設定
 func LoadConfig() error {
-
-	f, err := os.Open("config/config.json")
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	//Configにconfig.jsonを読み込む
-	err = json.NewDecoder(f).Decode(&Config)
+	f, err := ioutil.ReadFile("config/config.json")
 	if err != nil {
 		return err
 	}
 
-	// 環境変数の値の判定
-	format := "Port: %d\nLogFile: %s\nView: %s\nURL: %s\n"
+	err = json.Unmarshal(f, &Config)
+	if err != nil {
+		return err
+	}
+
+	format := "Port: %s\nLogFile: %s\nView: %s\nURL: %s\n"
 	_, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL)
 	if err != nil {
 		return err
 	}
 
-	return nil //自明であればnilにする
+	return nil
 }

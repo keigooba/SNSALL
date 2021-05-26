@@ -7,8 +7,7 @@ import (
 
 // コマンドの実行
 func Command() error {
-	var cmd *exec.Cmd
-	cmd = exec.Command("sh", "start.sh")
+	cmd := exec.Command("sh", "start.sh")
 	b, err := cmd.CombinedOutput()
 	if err != nil {
 		return err
