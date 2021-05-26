@@ -43,7 +43,7 @@ func init() {
 	// コマンドの実行
 	err = utils.Command()
 	if err != nil {
-		log.Println(err) //本番のroot権限ではコマンド実行できないため、出力のみ
+		log.Println(err)
 	}
 
 }

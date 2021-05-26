@@ -1,7 +1,7 @@
 {
   "port": "8080",
   "log_file":"gosnsall.log",
-  "view":"view",
+  "view":"views",
   "url":"http://localhost:",
   "version":"0.1.0",
   "message":"function add",

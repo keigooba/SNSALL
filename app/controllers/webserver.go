@@ -12,6 +12,11 @@ import (
 )
 
 func StartWebServer() error {
+	files := http.FileServer(http.Dir(config.Config.View))
+	http.Handle("/views/", http.StripPrefix("/views/", files))
+	http.HandleFunc("/json", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "config/config.json") //ファイルにアクセス
+	})
 	http.HandleFunc("/", index)
 
 	port := os.Getenv("PORT")
@@ -19,9 +24,7 @@ func StartWebServer() error {
 		port = config.FlagPort
 		log.Printf("Defauting to port %s", port)
 	}
-
 	log.Printf("Linstening on port %s", port)
-
 	return http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 }
 
@@ -42,10 +45,10 @@ func index(w http.ResponseWriter, _ *http.Request) {
 func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) {
 	var files []string
 	for _, file := range filenames {
-		files = append(files, fmt.Sprintf("view/%s.html", file))
+		files = append(files, fmt.Sprintf("app/"+config.Config.View+"/%s.html", file))
 	}
 	// ヘッダー・フッターを追加
-	files = append(files, "view/_header.html", "view/_footer.html")
+	files = append(files, "app/"+config.Config.View+"/_header.html", "app/"+config.Config.View+"/_footer.html")
 
 	templates := template.Must(template.ParseFiles(files...))
 	err := templates.Execute(w, data)

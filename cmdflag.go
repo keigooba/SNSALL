@@ -7,7 +7,7 @@ import (
 	"snsall/config"
 )
 
-// Gitリポジトリのバージョン start.shで最新のバージョンに更新される
+// Gitリポジトリのバージョン start.sh実行後バージョン更新
 var version = "1.0.0"
 
 func CmdFlag() {
@@ -17,10 +17,9 @@ func CmdFlag() {
 
 	// Gitリポジトリのバージョン確認
 	var showVersion bool
-	// -v -versionが指定された場合にshowVerionが真になるよう定義
 	flag.BoolVar(&showVersion, "version", false, "バージョン確認")
 	flag.BoolVar(&showVersion, "v", false, "バージョン確認(short)")
-	flag.Parse() //引数からオプションをパースする
+	flag.Parse()
 
 	if showVersion {
 		// バージョン番号を表示する
