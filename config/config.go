@@ -8,19 +8,16 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 	"snsall/utils"
-	"time"
 
 	"github.com/jinzhu/gorm"
-	"github.com/markbates/pkger"
 )
 
 type ConfigList struct {
 	Port    int    `json:"port"`
 	LogFile string `json:"log_file"`
-	Static  string `json:"static"`
-	URL     string `json:"up_url"` //本番時up_urlに変更
+	View    string `json:"view"`
+	URL     string `json:"url"`
 }
 
 // Config Configの定義
@@ -28,59 +25,36 @@ var Config ConfigList
 
 var Db *gorm.DB
 
-// ポート変更のためここで定義
+// ポート手動変更させるためここで定義
 var FlagPort int
 
 func init() {
-	// Configの設定の読み込み
+	// 設定ファイルconfigの読み込み
 	err := LoadConfig()
 	if err != nil {
-		log.Fatal(err)
+		log.Printf("Failed to read file: %v", err)
+		os.Exit(1)
 	}
-
-	// 現在の日付
-	nowDate := time.Now().Format("200601")
 
 	// ログファイルの設定
-	output := &utils.Output{OutStream: os.Stdout, ErrStream: os.Stderr}
-	err = utils.LoggingSettings(Config.LogFile+nowDate+".log", output)
+	utils.LoggingSettings(Config.LogFile)
 
-	if err != nil {
-		log.Fatal(err)
-	}
 	// コマンドの実行
 	err = utils.Command()
 	if err != nil {
 		log.Println(err) //本番のroot権限ではコマンド実行できないため、出力のみ
 	}
 
-	// DB接続
-	Db = utils.GormConnect()
-
 }
 
 // LoadConfig Configの設定
 func LoadConfig() error {
 
-	cwd, err := os.Getwd()
-	if err != nil {
-		return err
-	} else if utils.Pwd != "" {
-		cwd = utils.Pwd
-	}
-
-	fname := filepath.Join(cwd, "config", "config.json")
-	f, err := pkger.Open(fname)
+	f, err := os.Open("config/config.json")
 	if err != nil {
 		return err
 	}
-
-	defer func() {
-		err := f.Close()
-		if err != nil {
-			log.Println(err)
-		}
-	}()
+	defer f.Close()
 
 	//Configにconfig.jsonを読み込む
 	err = json.NewDecoder(f).Decode(&Config)
@@ -89,10 +63,11 @@ func LoadConfig() error {
 	}
 
 	// 環境変数の値の判定
-	format := "Port: %d\nLogFile: %s\nStatic: %s\nURL: %s\n"
-	_, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.Static, Config.URL)
+	format := "Port: %d\nLogFile: %s\nView: %s\nURL: %s\n"
+	_, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL)
 	if err != nil {
 		return err
 	}
+
 	return nil //自明であればnilにする
 }

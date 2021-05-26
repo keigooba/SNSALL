@@ -1,7 +1,9 @@
 {
-  "port": 80,
-  "log_file":"log/system_",
-  "static":"doc",
+  "port": 8080,
+  "log_file":"gosnsall.log",
+  "view":"view",
   "url":"http://localhost:",
-  "up_url":"http://gomix.work:"
+  "version":"0.1.0",
+  "message":"function add",
+  "info_url":"https://localhost/info"
 }

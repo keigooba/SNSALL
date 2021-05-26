@@ -1,19 +1,16 @@
-# gomix
+# golang
 
 # 初期設定
 
-1. Go module 導入 go mod init
-2. git 導入
-3. 各種メトリクス取得 API導入 golang-stats-api-handler
-4. Makefile の作成
-5. ログファイルの作成 logrusの導入
-6. header,footer の切り分け
-7. test ファイルの作成
-8. config ファイルの作成
-9. golang-lintの導入
-10. 自動化 sh ファイルの作成・exec.commandで自動実行
-11. 静的ファイルをバイナリファイルに埋め込む pkgerの導入
-12. バイナリファイルにGitのバージョン埋め込み設定・最新リリースバージョンチェック
+1. Go module導入
+2. git導入
+3. Makefileの作成
+4. ログファイルの作成
+5. header,footerの切り分け
+6. configファイルの作成
+7. golang-lintの導入
+8. shファイルの作成 command.goで自動実行
+9. バイナリファイルにGitのバージョン埋め込み設定・最新リリースバージョンチェック
 13. サーバー停止時のシグナルの作成
 14. githubによるバイナリファイルリリースの設定
 15. goxによるMac・Linux・Windowsに対応したそれぞれのバイナリファイルの作成

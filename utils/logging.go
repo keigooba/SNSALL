@@ -1,30 +1,19 @@
 package utils
 
 import (
-	"bytes"
-	"fmt"
 	"io"
 	"log"
 	"os"
 )
 
-type Output struct {
-	OutStream, ErrStream io.Writer
-}
-
-// ログの出力を変数にも保持
-var LogBuffer bytes.Buffer
-
-// LoggingSettings ログファイルの出力
-func LoggingSettings(logFile string, output *Output) error {
+func LoggingSettings(logFile string) {
 	logfile, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0777)
 	if err != nil {
-		return fmt.Errorf("ログファイルの作成に失敗しました: %s", err)
+		log.Println(err)
 	}
 	// 標準出力or標準エラー出力指定
-	multiLogFile := io.MultiWriter(output.OutStream, logfile, &LogBuffer)
+	multiLogFile := io.MultiWriter(os.Stdout, logfile)
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 	log.SetOutput(multiLogFile)
 
-	return nil
 }
