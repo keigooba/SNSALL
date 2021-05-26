@@ -1,41 +1,41 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
-    "os"
-    "os/exec"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"os/exec"
 )
 
 func main() {
 
-    http.HandleFunc("/", index)
-    http.HandleFunc("/version", version)
+	http.HandleFunc("/", index)
+	http.HandleFunc("/version", version)
 
-    port := os.Getenv("PORT")
-    if port == "" {
-        port = "8080"
-        log.Printf("Defauting to port %s", port)
-    }
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defauting to port %s", port)
+	}
 
-    log.Printf("Linstening on port %s", port)
+	log.Printf("Linstening on port %s", port)
 
-    err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
-    if err != nil {
-        log.Fatal(err)
-    }
+	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func index(w http.ResponseWriter, _ *http.Request) {
-    fmt.Fprint(w, "hello cloud run2")
+	fmt.Fprint(w, "hello cloud run2")
 }
 
 func version(w http.ResponseWriter, _ *http.Request) {
-    s, err := exec.Command("gcloud", "version").Output()
-    if err != nil {
-        log.Fatal(err)
-    }
+	s, err := exec.Command("gcloud", "version").Output()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    fmt.Fprintf(w, string(s))
+	fmt.Fprintf(w, string(s))
 }
