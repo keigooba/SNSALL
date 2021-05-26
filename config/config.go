@@ -14,7 +14,7 @@ import (
 )
 
 type ConfigList struct {
-	Port    int    `json:"port"`
+	Port    string `json:"port"`
 	LogFile string `json:"log_file"`
 	View    string `json:"view"`
 	URL     string `json:"url"`
@@ -26,7 +26,7 @@ var Config ConfigList
 var Db *gorm.DB
 
 // ポート手動変更させるためここで定義
-var FlagPort int
+var FlagPort string
 
 func init() {
 	// 設定ファイルconfigの読み込み
