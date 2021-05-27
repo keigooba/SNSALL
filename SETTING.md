@@ -15,4 +15,4 @@
 
 # 注意事項
 
-1. リリース更新時、config.Versionの更新を行うこと
+1. リリース更新時、config.Versionの更新を行うこと  
