@@ -7,7 +7,7 @@ import (
 	"snsall/config"
 )
 
-// Gitリポジトリのバージョン start.sh実行後バージョン更新
+// Gitリポジトリのバージョン start.sh実行後バージョン自動更新
 var version = "1.0.0"
 
 func CmdFlag() {

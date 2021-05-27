@@ -232,3 +232,99 @@ created by net/http.(*Server).Serve
 	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:3013 +0x39b
 2021/05/26 17:51:45 webserver.go:25: Defauting to port 8080
 2021/05/26 17:51:45 webserver.go:27: Linstening on port 8080
+2021/05/26 18:08:07 webserver.go:25: Defauting to port 8080
+2021/05/26 18:08:07 webserver.go:27: Linstening on port 8080
+2021/05/27 17:12:08 webserver.go:25: Defauting to port 8080
+2021/05/27 17:12:08 webserver.go:27: Linstening on port 8080
+2021/05/27 17:13:55 webserver.go:25: Defauting to port 8080
+2021/05/27 17:13:55 webserver.go:27: Linstening on port 8080
+2021/05/27 17:15:02 webserver.go:25: Defauting to port 8080
+2021/05/27 17:15:02 webserver.go:27: Linstening on port 8080
+2021/05/27 17:15:40 webserver.go:25: Defauting to port 8080
+2021/05/27 17:15:40 webserver.go:27: Linstening on port 8080
+2021/05/27 17:16:15 webserver.go:25: Defauting to port 8080
+2021/05/27 17:16:15 webserver.go:27: Linstening on port 8080
+2021/05/27 17:16:40 webserver.go:25: Defauting to port 8080
+2021/05/27 17:16:40 webserver.go:27: Linstening on port 8080
+2021/05/27 17:25:18 webserver.go:25: Defauting to port 8080
+2021/05/27 17:25:18 webserver.go:27: Linstening on port 8080
+2021/05/27 17:25:41 webserver.go:25: Defauting to port 8080
+2021/05/27 17:25:41 webserver.go:27: Linstening on port 8080
+2021/05/27 17:26:27 webserver.go:25: Defauting to port 8080
+2021/05/27 17:26:27 webserver.go:27: Linstening on port 8080
+2021/05/27 17:27:18 webserver.go:25: Defauting to port 8080
+2021/05/27 17:27:18 webserver.go:27: Linstening on port 8080
+2021/05/27 17:27:28 webserver.go:25: Defauting to port 8080
+2021/05/27 17:27:28 webserver.go:27: Linstening on port 8080
+2021/05/27 17:29:42 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:29:42 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:33:36 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:33:36 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:34:40 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:34:40 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:35:05 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:35:05 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:36:10 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:36:10 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:38:18 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:38:18 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:38:42 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:38:42 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:38:44 server.go:3139: http: panic serving [::1]:62755: open apsp/views/index.html: no such file or directory
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc0001cee60)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:1824 +0x153
+panic(0x141e200, 0xc0004084e0)
+	/usr/local/Cellar/go/1.16.2/libexec/src/runtime/panic.go:971 +0x499
+text/template.Must(...)
+	/usr/local/Cellar/go/1.16.2/libexec/src/text/template/helper.go:25
+snsall/app/controllers.generateHTML(0x150b220, 0xc00022a2a0, 0x0, 0x0, 0xc00012fa88, 0x1, 0x1)
+	/Users/keigo/Desktop/SNSALL/app/controllers/webserver.go:52 +0x505
+snsall/app/controllers.index(0x150b220, 0xc00022a2a0, 0xc0001ecb00)
+	/Users/keigo/Desktop/SNSALL/app/controllers/webserver.go:41 +0x1d8
+net/http.HandlerFunc.ServeHTTP(0x14a1f48, 0x150b220, 0xc00022a2a0, 0xc0001ecb00)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2069 +0x44
+net/http.(*ServeMux).ServeHTTP(0x1743c60, 0x150b220, 0xc00022a2a0, 0xc0001ecb00)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00022a0e0, 0x150b220, 0xc00022a2a0, 0xc0001ecb00)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001cee60, 0x150bcc0, 0xc0001eed00)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:3013 +0x39b
+2021/05/27 17:38:45 server.go:3139: http: panic serving [::1]:62757: open apsp/views/index.html: no such file or directory
+goroutine 35 [running]:
+net/http.(*conn).serve.func1(0xc000344140)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:1824 +0x153
+panic(0x141e200, 0xc0004089f0)
+	/usr/local/Cellar/go/1.16.2/libexec/src/runtime/panic.go:971 +0x499
+text/template.Must(...)
+	/usr/local/Cellar/go/1.16.2/libexec/src/text/template/helper.go:25
+snsall/app/controllers.generateHTML(0x150b220, 0xc0000aa380, 0x0, 0x0, 0xc00012da88, 0x1, 0x1)
+	/Users/keigo/Desktop/SNSALL/app/controllers/webserver.go:52 +0x505
+snsall/app/controllers.index(0x150b220, 0xc0000aa380, 0xc0000dc300)
+	/Users/keigo/Desktop/SNSALL/app/controllers/webserver.go:41 +0x1d8
+net/http.HandlerFunc.ServeHTTP(0x14a1f48, 0x150b220, 0xc0000aa380, 0xc0000dc300)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2069 +0x44
+net/http.(*ServeMux).ServeHTTP(0x1743c60, 0x150b220, 0xc0000aa380, 0xc0000dc300)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00022a0e0, 0x150b220, 0xc0000aa380, 0xc0000dc300)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000344140, 0x150bcc0, 0xc00009ef80)
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.2/libexec/src/net/http/server.go:3013 +0x39b
+2021/05/27 17:38:51 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:38:51 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:43:26 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:43:26 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:44:44 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:44:44 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:45:27 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:45:27 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:48:05 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:48:05 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:48:46 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:48:46 webserver.go:27: リッスンしているポート 8080
+2021/05/27 17:49:07 webserver.go:25: デフォルトのポート 8080
+2021/05/27 17:49:07 webserver.go:27: リッスンしているポート 8080
