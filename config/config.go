@@ -6,6 +6,7 @@ package config
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 
@@ -30,11 +31,11 @@ var FlagPort string
 
 func init() {
 	// 設定ファイルconfigの読み込み
-	// err := LoadConfig()
-	// if err != nil {
-	// 	log.Printf("ファイルの読み込みに失敗しました: %v", err)
-	// 	os.Exit(1)
-	// }
+	err := LoadConfig()
+	if err != nil {
+		log.Printf("ファイルの読み込みに失敗しました: %v", err)
+		os.Exit(1)
+	}
 
 	// // ログファイルの設定
 	// utils.LoggingSettings(Config.LogFile)
