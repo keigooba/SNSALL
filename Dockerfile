@@ -5,7 +5,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -v -o main
 
 FROM gcr.io/cloud-builders/gcloud:latest
-# WORKDIR
+WORKDIR /go/src
 
 COPY --from=builder /go/src/main /main
 ENTRYPOINT ["/main"]
