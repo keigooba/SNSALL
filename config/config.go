@@ -55,7 +55,7 @@ func LoadConfig() error {
 		return err
 	}
 
-	f, err := ioutil.ReadFile(cwd + "config/config.json")
+	f, err := ioutil.ReadFile(cwd + "/" + "config/config.json")
 	if err != nil {
 		return err
 	}
