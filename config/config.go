@@ -5,7 +5,6 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -67,11 +66,11 @@ func LoadConfig() error {
 		return err
 	}
 
-	format := "Port: %s\nLogFile: %s\nView: %s\nURL: %s\nVersion: %s\n"
-	_, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL, Config.Version)
-	if err != nil {
-		return err
-	}
+	// format := "Port: %s\nLogFile: %s\nView: %s\nURL: %s\nVersion: %s\n"
+	// _, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL, Config.Version)
+	// if err != nil {
+	// 	return err
+	// }
 
 	return nil
 }
