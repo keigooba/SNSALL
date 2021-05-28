@@ -10,3 +10,5 @@ COPY . .
 
 COPY --from=builder /go/src/snsall /snsall
 ENTRYPOINT ["/snsall"]
+
+RUN cat /go/src/main.go
