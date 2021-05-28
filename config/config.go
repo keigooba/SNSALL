@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
 
 	"github.com/jinzhu/gorm"
 )
@@ -29,11 +31,11 @@ var FlagPort string
 
 func init() {
 	// 設定ファイルconfigの読み込み
-	// err := LoadConfig()
-	// if err != nil {
-	// 	log.Printf("ファイルの読み込みに失敗しました: %v", err)
-	// 	os.Exit(1)
-	// }
+	err := LoadConfig()
+	if err != nil {
+		log.Printf("ファイルの読み込みに失敗しました: %v", err)
+		os.Exit(1)
+	}
 
 	// // ログファイルの設定
 	// utils.LoggingSettings(Config.LogFile)
@@ -48,7 +50,12 @@ func init() {
 
 // LoadConfig Configの設定
 func LoadConfig() error {
-	f, err := ioutil.ReadFile("config/config.json")
+	cwd, err := os.Getwd()
+	if err != nil {
+		return err
+	}
+
+	f, err := ioutil.ReadFile(cwd + "config/config.json")
 	if err != nil {
 		return err
 	}
