@@ -47,8 +47,12 @@ func init() {
 
 // LoadConfig Configの設定
 func LoadConfig() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return err
+	}
 
-	fname := filepath.Join("config", "config.json")
+	fname := filepath.Join(cwd, "config", "config.json")
 	f, err := ioutil.ReadFile(fname)
 	if err != nil {
 		return err
