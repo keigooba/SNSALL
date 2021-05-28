@@ -5,9 +5,8 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -v -o snsall
 
 FROM gcr.io/cloud-builders/gcloud:latest
-COPY . .
-WORKDIR /go/src/github_keigooba_snsall
-RUN echo "Hello World"
+WORKDIR /go/src
+RUN ls /go/src
 
 COPY --from=builder /go/src/snsall /snsall
 ENTRYPOINT ["/snsall"]
