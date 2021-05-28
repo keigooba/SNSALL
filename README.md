@@ -13,7 +13,7 @@
 ## 技術
 
 1. Go1.16.2
-2. Bootstrap4.5.0
+2. Bootstrap4.5.0π
 3. jQuery3.5.1
 4. MySQL8.0.23
 
