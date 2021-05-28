@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/jinzhu/gorm"
 )
@@ -55,7 +56,8 @@ func LoadConfig() error {
 		return err
 	}
 
-	f, err := ioutil.ReadFile(cwd + "/" + "config/config.json")
+	fname := filepath.Join(cwd, "config", "config.json")
+	f, err := ioutil.ReadFile(fname)
 	if err != nil {
 		return err
 	}
