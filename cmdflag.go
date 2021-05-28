@@ -8,7 +8,7 @@ import (
 )
 
 // Gitリポジトリのバージョン start.sh実行後バージョン自動更新
-var version = "1.0.0"
+var versions = "1.0.0"
 
 func CmdFlag() {
 	// ポート設定のオプション
@@ -23,7 +23,7 @@ func CmdFlag() {
 
 	if showVersion {
 		// バージョン番号を表示する
-		fmt.Println("version", version)
+		fmt.Println("version", versions)
 		os.Exit(1)
 	}
 }
