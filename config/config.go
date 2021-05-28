@@ -1,6 +1,3 @@
-// +build darwin,amd64 windows linux,!android
-// +build go1.1
-
 package config
 
 import (
