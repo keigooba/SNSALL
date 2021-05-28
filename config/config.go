@@ -7,9 +7,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
-	"os"
-	"snsall/utils"
 
 	"github.com/jinzhu/gorm"
 )
@@ -32,20 +29,20 @@ var FlagPort string
 
 func init() {
 	// 設定ファイルconfigの読み込み
-	err := LoadConfig()
-	if err != nil {
-		log.Printf("ファイルの読み込みに失敗しました: %v", err)
-		os.Exit(1)
-	}
+	// err := LoadConfig()
+	// if err != nil {
+	// 	log.Printf("ファイルの読み込みに失敗しました: %v", err)
+	// 	os.Exit(1)
+	// }
 
-	// ログファイルの設定
-	utils.LoggingSettings(Config.LogFile)
+	// // ログファイルの設定
+	// utils.LoggingSettings(Config.LogFile)
 
-	// コマンドの実行
-	err = utils.Command()
-	if err != nil {
-		log.Println(err)
-	}
+	// // コマンドの実行
+	// err = utils.Command()
+	// if err != nil {
+	// 	log.Println(err)
+	// }
 
 }
 

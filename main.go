@@ -11,7 +11,7 @@ import (
 func main() {
 
 	http.HandleFunc("/", index)
-	http.HandleFunc("/version", versions)
+	http.HandleFunc("/version", version)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -31,7 +31,7 @@ func index(w http.ResponseWriter, _ *http.Request) {
 	fmt.Fprint(w, "hello cloud run")
 }
 
-func versions(w http.ResponseWriter, _ *http.Request) {
+func version(w http.ResponseWriter, _ *http.Request) {
 	s, err := exec.Command("gcloud", "version").Output()
 	if err != nil {
 		log.Fatal(err)
