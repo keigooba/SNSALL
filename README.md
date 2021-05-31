@@ -1,6 +1,6 @@
 # SNSALL
 
-サイトURL:
+サイト URL:
 
 ## 概要
 
@@ -12,9 +12,8 @@
 
 ## 技術
 
-1. Go1.16.2
-2. Bootstrap4.5.0π
+1. Go1.16.4
+2. Bootstrap4
 3. jQuery3.5.1
-4. MySQL8.0.23
 
 ## 学習記録・作成物
