@@ -1,7 +1,7 @@
 FROM golang:1.16-stretch
 
 SHELL ["/bin/bash", "-c"]
-RUN apt update && apt-get install -y vim unzip
+RUN apt update && apt-get install -y vim unzip git
 
 # install protc
 WORKDIR /protoc
@@ -10,6 +10,13 @@ RUN unzip protoc-3.11.2-linux-x86_64.zip
 RUN ln -s /protoc/bin/protoc /bin/protoc
 
 # golang
-WORKDIR /go-grpc
+WORKDIR /snsall
 ENV GO111MODULE on
-RUN go get -u github.com/golang/protobuf/protoc-gen-go
+RUN go get -u github.com/golang/protobuf/protoc-gen-go \
+  && go get -u github.com/pilu/fresh
+RUN git config --global user.email "keigo2356@gmail.com" \
+  && git config --global user.name "keigooba"
+
+EXPOSE 8080
+
+CMD ["fresh"]

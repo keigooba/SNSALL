@@ -1,11 +1,12 @@
-version: "3.7"
+version: '3.7'
 services:
-  go-grpc:
+  snsall:
     build:
       context: ./go-grpc/
       dockerfile: Dockerfile.dev
-    container_name: "go-grpc"
+    container_name: "snsall"
     volumes:
-      - ../:/go-grpc
+      - ../:/snsall
+    ports:
+      - "8080:8080"
     tty: true
-    privileged: true

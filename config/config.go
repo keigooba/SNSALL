@@ -2,10 +2,10 @@ package config
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
-	"path/filepath"
 
 	"github.com/jinzhu/gorm"
 )
@@ -47,13 +47,8 @@ func init() {
 
 // LoadConfig Configの設定
 func LoadConfig() error {
-	cwd, err := os.Getwd()
-	if err != nil {
-		return err
-	}
 
-	fname := filepath.Join(cwd, "config", "config.json")
-	f, err := ioutil.ReadFile(fname)
+	f, err := ioutil.ReadFile("config/config.json")
 	if err != nil {
 		return err
 	}
@@ -63,11 +58,11 @@ func LoadConfig() error {
 		return err
 	}
 
-	// format := "Port: %s\nLogFile: %s\nView: %s\nURL: %s\nVersion: %s\n"
-	// _, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL, Config.Version)
-	// if err != nil {
-	// 	return err
-	// }
+	format := "Port: %s\nLogFile: %s\nView: %s\nURL: %s\nVersion: %s\n"
+	_, err = fmt.Printf(format, Config.Port, Config.LogFile, Config.View, Config.URL, Config.Version)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
