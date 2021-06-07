@@ -1,4 +1,6 @@
-# SNSALL
+# grpc-gateway-sample
+
+gRPC-gatewayのサンプルコード。使い方がわからないため、一旦gRPCの活用は保留。
 
 サイト URL:
 
