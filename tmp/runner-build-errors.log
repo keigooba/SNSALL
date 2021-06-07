@@ -1,0 +1,1 @@
+server.go:8:2: package snsall/pb/hello is not in GOROOT (/usr/local/go/src/snsall/pb/hello)

@@ -1,0 +1,11 @@
+version: v1beta1
+plugins:
+  - name: go
+    out: .
+    opt: module=snsall
+  - name: go-grpc
+    out: .
+    opt: module=snsall,require_unimplemented_servers=false
+  - name: grpc-gateway
+    out: .
+    opt: module=snsall

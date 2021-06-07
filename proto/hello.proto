@@ -4,14 +4,19 @@ option java_multiple_files = true;
 option java_package = "io.grpc.examples.hello";
 option java_outer_classname = "HelloProto";
 
-option go_package = "grpc-sample/pb/hello";
+option go_package = "snsall/pb/hello";
 package hello;
 
-service Hello {
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
-  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
-}
+import "google/api/annotations.proto";
 
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/index"
+    };
+  }
+}
 message HelloRequest {
   string name = 1;
 }
